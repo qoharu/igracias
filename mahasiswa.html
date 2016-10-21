@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mahasiswa Finder | Squhart</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</head>
+
+	<body>
+
+<div class="page-header container-fluid">	
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+	    		<div class="panel-body well">
+				    <form class="form-horizontal col-md-11" id="find">
+						<legend>NIM NIK NIP Mahasiswa Dosen Staff Telkom</legend>
+						        <div class="form-group">
+						            <label for="q" class="col-lg-2 control-label" >Query</label>
+						            <div class="col-lg-10">
+						                <input type="text" class="form-control" id="q" name="email" placeholder="Nama / NIM">
+						            </div>
+						        </div>
+						        <div class="form-group">
+						            <div class="col-md-12">
+						                <button type="submit" class="btn btn-material-red pull-right">Find!</button>
+						            </div>
+						        </div>
+				     </form>
+					<div class="col-md-12">
+						<div class="panel panel-default">
+						  <div class="panel-heading"> NIM / Name </div>
+						  <table class="table table-hover tabelnya" id="isi">
+						    <div class="loader" style="display:none;">loading...</div>
+						  </table>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade detail" tabindex="-1" role="dialog" aria-labelledby="detail" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="judulModal">Detail </h4>
+      </div>
+      <div class="modal-body">
+            <label class="control-label">Parents : <p id="parents"></p></label>
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+{
+  "sEcho": 1,
+  "iTotalRecords": 8,
+  "iTotalDisplayRecords": 8,
+  "aaData": [
+    [
+      "SENIN",
+      "07:30:00",
+      "(A301A) KU1.03.01",
+      "FEH4A2",
+      "PENULISAN KARYA ILMIAH DAN PROPOSAL",
+      "DPD",
+      "TTX-39-01",
+      "09:30:00"
+    ],
+    [
+      "SELASA",
+      "06:30:00",
+      "(A209) KU1.02.17",
+      "TTH4Q3",
+      "STEGANOGRAFI AND WATERMARKING",
+      "GLB",
+      "TT-37-G1",
+      "09:30:00"
+    ],
+    [
+      "SELASA",
+      "15:30:00",
+      "(A209) KU1.02.17",
+      "TTH4P3",
+      "COMPUTER VISION",
+      "GLB",
+      "TT-37-G1",
+      "18:30:00"
+    ],
+    [
+      "RABU",
+      "06:30:00",
+      "(A301A) KU1.03.01",
+      "FEH2E2",
+      "EKONOMI TEKNIK B",
+      "HRG",
+      "TTX-39-01",
+      "08:30:00"
+    ],
+    [
+      "RABU",
+      "10:30:00",
+      "(A206A) KU1.02.11",
+      "DUH2A2",
+      "KEWIRAUSAHAAN",
+      "RLY",
+      "TT-38-03",
+      "12:30:00"
+    ],
+    [
+      "RABU",
+      "15:30:00",
+      "(A209) KU1.02.17",
+      "TTH4D3",
+      "NEW GENERATION NETWORK",
+      "YGB",
+      "TT-37-G2",
+      "18:30:00"
+    ],
+    [
+      "KAMIS",
+      "12:30:00",
+      "(A302A) KU1.03.03",
+      "TTH3D3",
+      "PEMROGRAMAN BERBASIS OBJEK",
+      "FCP",
+      "TTX-39-01",
+      "15:30:00"
+    ],
+    [
+      "JUMAT",
+      "09:30:00",
+      "(A205) KU1.02.09",
+      "TTH4N3",
+      "KODING DAN KOMPRESI",
+      "LDN",
+      "TT-37-G1",
+      "12:30:00"
+    ]
+  ]
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jadwal Kuliah</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link href="css/roboto.min.css" rel="stylesheet">
+        <link href="css/material.min.css" rel="stylesheet">
+        <link href="css/ripples.min.css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- <script type="text/javascript" src="js/app.js"></script> -->
+</head>
+<body>
+	<div class="page-header container-fluid">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-default">
+	    		<div class="panel-body well">
+				    <form class="form-horizontal col-md-11" id="find">
+						<legend></legend>
+						        <div class="form-group">
+						            <div class="col-md-3">
+						                <input type="text" class="form-control" id="q" name="nim" placeholder="NIM">
+						            </div>
+						        </div>
+				     </form>
+					<div class="col-md-12">
+						<div class="panel panel-default" id="isi">
+						  
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+
+// Find
+$("#find").submit(function(){ 
+	template = "<div class='panel-heading'> Jadwal Kuliah </div><div class='loader' style='display:none;''>loading...</div><table class='table table-hover tabelnya' id='template'><tr><th>WAKTU</th><th>SENIN</th><th>SELASA</th><th>RABU</th><th>KAMIS</th><th>JUMAT</th><th>SABTU</th></tr><tr class='jam-6'><th>6.30 - 7.30</th></tr><tr class='jam-7'><th>7.30 - 8.30</th></tr><tr class='jam-8'><th>8.30 - 9.30</th></tr><tr class='jam-9'><th>9.30 - 10.30</th></tr><tr class='jam-10'><th>10.30 - 11.30</th></tr><tr class='jam-11'><th>11.30 - 12.30</th></tr><tr class='jam-12'><th>12.30 - 13.30</th></tr><tr class='jam-13'><th>13.30 - 14.30</th></tr><tr class='jam-14'><th>14.30 - 15.30</th></tr><tr class='jam-15'><th>15.30 - 16.30</th></tr><tr class='jam-16'><th>16.30 - 17.30</th></tr><tr class='jam-17'><th>17.30 - 18.30</th></tr></table>";
+
+	hari = ['SENIN','SELASA','RABU','KAMIS','JUMAT','SABTU'];
+    q = $("#q").val();
+    $.ajax({
+    	type: "GET",
+    	url: "jadwal.php",
+    	data: "q="+q,
+    	beforeSend: function(){
+    		$("#isi").fadeOut('fast');
+    		$("#isi").html(template);
+    		$("#isi").fadeIn('fast');
+    		$(".loader").fadeIn('slow');
+    	},
+    	success: function(data){
+    		// data = $.parseJSON(data);
+    		console.log(data.aaData[0][1]);
+    		$(".loader").hide();
+    		if(data == undefined){
+    			$("#isi").html("Not found!");
+    		}else{
+
+    		for (var i = 0; i <= 5; i++) {
+    			offset = 1;
+    			for (var j = 6; j <= 17; j++) {
+    				for (var k = 0; k <= data.iTotalRecords-1; k++) {
+    					jam1 = data.aaData[k][1].split(":")[0];
+    					jam2 = data.aaData[k][7].split(":")[0];
+
+    					if (data.aaData[k][0] == hari[i] && jam1 == j) {
+    						found = true;
+    						offset =  jam2 - jam1;
+    						console.log(offset);
+    						$(".jam-"+j).append("<td rowspan="+offset+" class='isian danger'>"+data.aaData[k][5]+"("+data.aaData[k][4]+")\n"+data.aaData[k][2]+"<td>");
+    						offset++;
+    					}else{
+    						found = false;
+    					}
+    				}
+    				if (!found) {
+    					console.log("not found "+offset);
+    					if (offset >= 2) {
+    						offset--;
+    					}else if(offset == 1){
+    						$(".jam-"+j).append("<td></td>");
+    						console.log("build td on jam-"+j);
+    					}
+    				}
+    			}
+    		}
+    		}
+    		// $.each(data, function(i, item) {
+    		// 	var nim = data[i].title.split(" ");
+		    //     $("<tr>").html("<th class='btn btn-block' data-toggle='modal' data-target='.detail' data-nim='"+nim[0]+"' data-title='"+data[i].title+"' >" + data[i].title + "</th>").appendTo('#isi');
+		    // });
+    	}
+    })
+
+    return false;
+});
+})
+</script>
+</body>
+</html>
+
